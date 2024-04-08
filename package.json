@@ -5,9 +5,15 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "customer-start-dev": "pnpm --cwd apps/crash-replay-customer start-dev",
+    "dashboard-start-dev": "pnpm --cwd apps/crash-replay-dashboard start-dev",
+    "server-start-dev": "pnpm --cwd apps/crash-replay-server start:dev",
+    "start-dev": "npm-run-all --parallel customer-start-dev dashboard-start-dev server-start-dev"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "workspaces": [
+    "apps/*"
+  ]
 }
