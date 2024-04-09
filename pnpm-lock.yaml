@@ -12,7 +12,7 @@ importers:
         specifier: ^4.1.5
         version: 4.1.5
 
-  apps/crash-replay-customer:
+  apps/crash-replayer-customer:
     dependencies:
       '@ant-design/icons':
         specifier: ^5.2.6
@@ -82,7 +82,7 @@ importers:
         specifier: ^5.2.2
         version: 5.4.4
 
-  apps/crash-replay-dashboard:
+  apps/crash-replayer-dashboard:
     dependencies:
       '@ant-design/icons':
         specifier: ^5.2.6
@@ -152,7 +152,7 @@ importers:
         specifier: ^5.2.2
         version: 5.4.4
 
-  apps/crash-replay-server:
+  apps/crash-replayer-server:
     dependencies:
       '@nestjs/common':
         specifier: ^10.0.0
@@ -3662,7 +3662,7 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.4
       hoist-non-react-statics: 3.3.2
       react: 18.1.0
       react-is: 16.13.1
@@ -3674,7 +3674,7 @@ packages:
     peerDependencies:
       react: '>=16.3.0'
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.4
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
       react-is: 16.13.1
@@ -4100,7 +4100,7 @@ packages:
       postcss: '>=7.0.0'
       postcss-syntax: '>=0.36.2'
     dependencies:
-      '@babel/core': 7.23.6
+      '@babel/core': 7.24.4
       postcss: 8.4.38
       postcss-syntax: 0.36.2(postcss@8.4.38)
     transitivePeerDependencies:
@@ -5366,7 +5366,7 @@ packages:
   /@umijs/history@5.3.1:
     resolution: {integrity: sha512-/e0cEGrR2bIWQD7pRl3dl9dcyRGeC9hoW0OCvUTT/hjY0EfUrkd6G8ZanVghPMpDuY5usxq9GVcvrT8KNXLWvA==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.4
       query-string: 6.14.1
     dev: false
 
@@ -9691,7 +9691,7 @@ packages:
   /history@5.3.0:
     resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.4
     dev: false
 
   /hmac-drbg@1.0.1:
@@ -14562,7 +14562,7 @@ packages:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.4
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 18.1.0
@@ -14577,7 +14577,7 @@ packages:
       react: ^16.6.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.4
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 18.2.0
