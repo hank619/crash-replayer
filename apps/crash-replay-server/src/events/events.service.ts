@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreateEventsDto } from './events.dto';
-import { db } from 'src/fireasbe';
+import { db } from '../fireasbe';
 
 @Injectable()
 export class EventsService {
