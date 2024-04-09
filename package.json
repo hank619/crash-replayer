@@ -5,9 +5,9 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "customer-start-dev": "pnpm --cwd apps/crash-replay-customer start-dev",
-    "dashboard-start-dev": "pnpm --cwd apps/crash-replay-dashboard start-dev",
-    "server-start-dev": "pnpm --cwd apps/crash-replay-server start:dev",
+    "customer-start-dev": "pnpm --filter crash-replayer-customer start-dev",
+    "dashboard-start-dev": "pnpm --filter crash-replayer-dashboard start-dev",
+    "server-start-dev": "pnpm --filter crash-replayer-server start:dev",
     "start-dev": "npm-run-all --parallel customer-start-dev dashboard-start-dev server-start-dev"
   },
   "keywords": [],
