@@ -4,5 +4,5 @@
  * @Description:
  */
 export default {
-  API_HOST: "https://crash-replayer-server.vercel.app",
+  SERVER_API_HOST: "https://crash-replayer-server.vercel.app",
 };

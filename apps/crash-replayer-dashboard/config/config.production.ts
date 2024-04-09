@@ -4,10 +4,11 @@
  * @Description:
  */
 import { defineConfig } from '@umijs/max';
+import ShredConstants from 'crash-replayer-shared-constants';
 
 export default defineConfig({
   define: {
-    API_HOST: 'https://mock.com',
+    API_HOST: ShredConstants.SERVER_API_HOST,
     ENV: 'production',
   },
 });
