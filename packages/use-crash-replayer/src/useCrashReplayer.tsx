@@ -5,7 +5,6 @@
  */
 import { useEffect } from 'react';
 import { pack, record } from 'rrweb';
-import { SERVER_API_HOST } from './constants';
 
 const sampling = {
   // 不录制鼠标移动事件
@@ -24,9 +23,9 @@ const events: any = [[], []];
 let queueIndex = 0;
 
 export const useCrashReplayer = (
+  url: string,
   browserId: string,
   customerId: string = '',
-  url: string = `${SERVER_API_HOST}/events`
 ) => {
   useEffect(() => {
     const stopFn = record({

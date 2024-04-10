@@ -15,7 +15,7 @@ import { useCrashReplayer } from 'use-crash-replayer';
 
 function Layout() {
   const [, forceRender] = useReducer((v) => v + 1, 0);
-  useCrashReplayer(getUUID());
+  useCrashReplayer(`${API_HOST}/events`, getUUID());
 
   return (
     <ThemContext.Provider
