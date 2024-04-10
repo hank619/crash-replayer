@@ -1,12 +1,10 @@
 /*
  * @Author: Hong.Zhang
- * @Date: 2024-04-03 11:40:49
+ * @Date: 2024-04-10 16:30:06
  * @Description:
  */
-import { request } from '@umijs/max';
 import { useEffect } from 'react';
 import { pack, record } from 'rrweb';
-import { getUUID } from './uuid';
 
 const sampling = {
   // 不录制鼠标移动事件
@@ -24,7 +22,11 @@ const sampling = {
 const events: any = [[], []];
 let queueIndex = 0;
 
-export const useRrweb = () => {
+export const useCrashReplayer = (
+  url: string,
+  browserId: string,
+  customerId: string = ''
+) => {
   useEffect(() => {
     const stopFn = record({
       emit(event, isCheckout) {
@@ -41,12 +43,7 @@ export const useRrweb = () => {
 
     // prevent onerror trigger twice in dev mode
     let reporting = false;
-    window.onerror = (
-      error: Event | string,
-      source?: string,
-      lineno?: number,
-      colno?: number,
-    ) => {
+    const onError = (errorEvent: ErrorEvent) => {
       if (reporting) {
         return;
       }
@@ -54,17 +51,30 @@ export const useRrweb = () => {
       const preQueueIndex = (queueIndex + 1) % 2;
       const concatEvents = events[preQueueIndex].concat(events[queueIndex]);
 
-      request('/events', {
+      const concatEventsString = JSON.stringify(concatEvents);
+      console.log('🚀 ~ onError ~ concatEventsString:', concatEventsString);
+      const body = JSON.stringify({
+        error: errorEvent.message,
+        source: errorEvent.filename,
+        lineno: errorEvent.lineno,
+        colno: errorEvent.colno,
+        browserId: browserId,
+        customerId: customerId,
+        events: concatEventsString,
+      });
+      fetch(url, {
         method: 'POST',
-        data: {
-          error,
-          source,
-          lineno,
-          colno,
-          customerId: getUUID(),
-          events: JSON.stringify(concatEvents),
+        headers: {
+          'Content-Type': 'application/json',
         },
+        body: body,
       })
+        .then((res) => {
+          if (!res.ok) {
+            console.log('🚀 ~ useEffect Network response was not ok');
+          }
+          return res.json();
+        })
         .catch((err) => {
           console.log('🚀 ~ useEffect ~ err:', err);
         })
@@ -73,11 +83,12 @@ export const useRrweb = () => {
         });
       return true;
     };
+
+    window.addEventListener('error', onError);
+
     return () => {
-      stopFn();
-      window.onerror = null;
+      stopFn?.();
+      window.removeEventListener('error', onError);
     };
   }, []);
-
-  return null;
 };

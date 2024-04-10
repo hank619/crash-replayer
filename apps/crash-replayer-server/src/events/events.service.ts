@@ -4,9 +4,9 @@ import { db } from '../fireasbe';
 
 @Injectable()
 export class EventsService {
-  async findList(customerId: string, offset: number, limit: number) {
-    const step1Ref = customerId
-      ? db.collection('users').where('customerId', '==', customerId)
+  async findList(browserId: string, offset: number, limit: number) {
+    const step1Ref = browserId
+      ? db.collection('users').where('browserId', '==', browserId)
       : db.collection('users');
     const recordRef = step1Ref.offset(offset).limit(limit);
     const snapshot = await recordRef.get();
@@ -19,10 +19,10 @@ export class EventsService {
     return customers;
   }
 
-  async findDetail(customerId: string) {
+  async findDetail(browserId: string) {
     const recordRef = db
       .collection('users')
-      .where('customerId', '==', customerId);
+      .where('browserId', '==', browserId);
     const snapshot = await recordRef.get();
     if (snapshot.empty) {
       return 'customer not found';
@@ -32,10 +32,11 @@ export class EventsService {
   }
 
   async create(createEventDto: CreateEventsDto) {
-    const { error, source, lineno, colno, customerId, events } = createEventDto;
+    const { error, source, lineno, colno, customerId, browserId, events } =
+      createEventDto;
     const recordRef = db
       .collection('users')
-      .where('customerId', '==', customerId);
+      .where('browserId', '==', browserId);
     const snapshot = await recordRef.get();
     let res = null;
     if (snapshot.empty) {
@@ -44,6 +45,7 @@ export class EventsService {
         source,
         lineno,
         colno,
+        browserId,
         customerId,
         events,
       });

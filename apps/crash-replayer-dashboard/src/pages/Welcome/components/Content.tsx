@@ -16,7 +16,7 @@ const Content = ({ customer }: { customer?: Customer }) => {
   const [visible, setVisible] = useState(false);
   const replayContainerRef = useRef<HTMLDivElement | null>(null);
   const { data, run, loading } = useRequest<Customer, any[]>(
-    () => request(`/events/${customer?.customerId}`),
+    () => request(`/events/${customer?.browserId}`),
     {
       manual: true,
       onSuccess() {

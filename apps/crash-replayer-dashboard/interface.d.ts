@@ -8,6 +8,7 @@ interface Customer {
   source: string;
   lineno: number;
   colno: number;
+  browserId: string;
   customerId: string;
   events: string;
 }

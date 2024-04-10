@@ -22,6 +22,10 @@ export class CreateEventsDto {
   colno: number;
 
   @IsString()
+  browserId: string;
+
+  @IsString()
+  @IsOptional()
   customerId: string;
 
   @IsString()

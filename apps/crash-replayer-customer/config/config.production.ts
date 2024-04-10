@@ -4,11 +4,11 @@
  * @Description:
  */
 import { defineConfig } from '@umijs/max';
-import ShredConstants from 'crash-replayer-shared-constants';
+import { SERVER_API_HOST } from 'use-crash-replayer';
 
 export default defineConfig({
   define: {
-    API_HOST: ShredConstants.SERVER_API_HOST,
+    API_HOST: SERVER_API_HOST,
     ENV: 'production',
   },
 });
