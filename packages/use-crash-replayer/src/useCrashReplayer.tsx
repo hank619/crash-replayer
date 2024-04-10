@@ -25,7 +25,7 @@ let queueIndex = 0;
 export const useCrashReplayer = (
   url: string,
   browserId: string,
-  customerId: string = '',
+  customerId: string = ''
 ) => {
   useEffect(() => {
     const stopFn = record({
@@ -51,20 +51,25 @@ export const useCrashReplayer = (
       const preQueueIndex = (queueIndex + 1) % 2;
       const concatEvents = events[preQueueIndex].concat(events[queueIndex]);
 
+      const concatEventsString = JSON.stringify(concatEvents);
+      console.log('🚀 ~ onError ~ concatEventsString:', concatEventsString);
+      const body = JSON.stringify({
+        error: errorEvent.message,
+        source: errorEvent.filename,
+        lineno: errorEvent.lineno,
+        colno: errorEvent.colno,
+        browserId: browserId,
+        customerId: customerId,
+        events: concatEventsString,
+      });
+      console.log('🚀 ~ onError ~ body:', body);
+      console.log('🚀 ~ onError ~ url:', url);
       fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          error: errorEvent.message,
-          source: errorEvent.filename,
-          lineno: errorEvent.lineno,
-          colno: errorEvent.colno,
-          browserId: browserId,
-          customerId: customerId,
-          events: JSON.stringify(concatEvents),
-        }),
+        body: body,
       })
         .then((res) => {
           if (!res.ok) {
