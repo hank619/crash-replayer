@@ -1,3 +1,3 @@
 - [x] extract the backend url as global configuration in root folder
-- [ ] extract server-account as `BUILD_VARIABLE`
+- [x] extract server-account as `BUILD_VARIABLE`
 - [ ] extract npm package for useCrashReplayer
