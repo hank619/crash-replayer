@@ -5,9 +5,11 @@
  */
 import { cert, initializeApp } from 'firebase-admin/app';
 import { getFirestore, Firestore } from 'firebase-admin/firestore';
-import * as serverAccount from './server-account.json';
 
 export const initFirebase = () => {
+  const serverAccount = JSON.parse(
+    process.env.FIREBASE_SERVICE_ACCOUNT_JSON as string,
+  );
   initializeApp({
     credential: cert({
       projectId: serverAccount.project_id,
