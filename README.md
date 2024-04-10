@@ -7,7 +7,7 @@
   dashboard to display and replay the crash
 - crash-replayer-server
   backend service to save the crash
-- crash-replayer-constans
+- crash-replayer-constants
   some shred constants
 - use-crash-replayer
   hooks for customer to easy integrate to crash replayer
