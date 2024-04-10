@@ -32,9 +32,6 @@ importers:
       antd:
         specifier: ^5.11.0
         version: 5.16.1(react-dom@18.2.0)(react@18.2.0)
-      crash-replayer-shared-constants:
-        specifier: workspace:^
-        version: link:../../packages/crash-replayer-shared-constants
       mobile-detect:
         specifier: ^1.4.5
         version: 1.4.5
@@ -44,6 +41,9 @@ importers:
       rrweb:
         specifier: 2.0.0-alpha.4
         version: 2.0.0-alpha.4
+      use-crash-replayer:
+        specifier: workspace:^
+        version: link:../../packages/use-crash-replayer
       uuid:
         specifier: ^9.0.1
         version: 9.0.1
@@ -108,9 +108,6 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
-      crash-replayer-shared-constants:
-        specifier: workspace:^
-        version: link:../../packages/crash-replayer-shared-constants
       mobile-detect:
         specifier: ^1.4.5
         version: 1.4.5
@@ -255,9 +252,11 @@ importers:
         specifier: ^5.1.3
         version: 5.4.4
 
-  packages/crash-replayer-shared-constants: {}
-
   packages/use-crash-replayer:
+    dependencies:
+      rrweb:
+        specifier: 2.0.0-alpha.4
+        version: 2.0.0-alpha.4
     devDependencies:
       '@size-limit/preset-small-lib':
         specifier: ^11.1.2

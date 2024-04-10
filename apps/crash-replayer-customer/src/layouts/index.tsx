@@ -5,15 +5,17 @@
  */
 import { COLORS, COLOR_VALUE_TYPE } from '@/constants/theme';
 import { ThemContext } from '@/context/ThemeContext';
-import { useRrweb } from '@/utils/rrweb';
+// import { useRrweb } from '@/utils/rrweb';
 import { getCssVariable, setCssVariable } from '@/utils/theme';
 import { Outlet } from '@umijs/max';
 import { ConfigProvider } from 'antd';
 import { useReducer } from 'react';
+import { useCrashReplayer } from 'use-crash-replayer';
 
 function Layout() {
   const [, forceRender] = useReducer((v) => v + 1, 0);
-  useRrweb();
+  // useRrweb();
+  useCrashReplayer();
 
   return (
     <ThemContext.Provider

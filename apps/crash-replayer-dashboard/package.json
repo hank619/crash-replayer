@@ -25,7 +25,6 @@
     "ahooks": "^3.7.8",
     "antd": "^5.11.0",
     "classnames": "^2.5.1",
-    "crash-replayer-shared-constants": "workspace:^",
     "mobile-detect": "^1.4.5",
     "qs": "^6.11.2",
     "rrweb": "2.0.0-alpha.4",
