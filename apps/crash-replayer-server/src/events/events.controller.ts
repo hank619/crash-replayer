@@ -17,16 +17,16 @@ export class EventsController {
 
   @Get()
   findAll(
-    @Query('customerId', new DefaultValuePipe('')) customerId: string,
+    @Query('browserId', new DefaultValuePipe('')) browserId: string,
     @Query('offset', new DefaultValuePipe(0), ParseIntPipe) offset: number,
     @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
   ) {
-    return this.eventsService.findList(customerId, offset, limit);
+    return this.eventsService.findList(browserId, offset, limit);
   }
 
-  @Get(':customerId')
-  findOne(@Param('customerId') customerId: string) {
-    return this.eventsService.findDetail(customerId);
+  @Get(':browserId')
+  findOne(@Param('browserId') browserId: string) {
+    return this.eventsService.findDetail(browserId);
   }
 
   @Post()

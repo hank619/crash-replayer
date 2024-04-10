@@ -24,7 +24,8 @@ const events: any = [[], []];
 let queueIndex = 0;
 
 export const useCrashReplayer = (
-  customerId: string | (() => string),
+  browserId: string,
+  customerId: string = '',
   url: string = `${SERVER_API_HOST}/events`
 ) => {
   useEffect(() => {
@@ -50,8 +51,7 @@ export const useCrashReplayer = (
       reporting = true;
       const preQueueIndex = (queueIndex + 1) % 2;
       const concatEvents = events[preQueueIndex].concat(events[queueIndex]);
-      const computedCustomerId =
-        typeof customerId === 'function' ? customerId() : customerId;
+
       fetch(url, {
         method: 'POST',
         headers: {
@@ -60,9 +60,10 @@ export const useCrashReplayer = (
         body: JSON.stringify({
           error: errorEvent.message,
           source: errorEvent.filename,
-          lineno: errorEvent.filename,
+          lineno: errorEvent.lineno,
           colno: errorEvent.colno,
-          customerId: computedCustomerId,
+          browserId: browserId,
+          customerId: customerId,
           events: JSON.stringify(concatEvents),
         }),
       })

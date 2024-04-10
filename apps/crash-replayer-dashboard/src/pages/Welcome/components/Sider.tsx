@@ -45,14 +45,14 @@ const Sider = (props: ISiderProps) => {
         <div className="mt-10 flex flex-col gap-4 ">
           {data?.map((item: Customer) => (
             <div
-              key={item.customerId}
+              key={item.browserId}
               onClick={() => onChange(item)}
               className={cls('cursor-pointer', {
-                'text-primary': item.customerId === value?.customerId,
-                'text-black': item.customerId !== value?.customerId,
+                'text-primary': item.browserId === value?.browserId,
+                'text-black': item.browserId !== value?.browserId,
               })}
             >
-              {item.customerId}
+              {item.browserId}
             </div>
           ))}
         </div>
