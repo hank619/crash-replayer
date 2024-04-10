@@ -4,10 +4,11 @@
  * @Description:
  */
 import { defineConfig } from '@umijs/max';
+import { SERVER_API_HOST } from 'crash-replayer-constants';
 
 export default defineConfig({
   define: {
-    API_HOST:"https://mock.com",
+    API_HOST: SERVER_API_HOST,
     ENV: 'production',
   },
 });

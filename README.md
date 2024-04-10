@@ -7,6 +7,10 @@
   dashboard to display and replay the crash
 - crash-replayer-server
   backend service to save the crash
+- crash-replayer-constans
+  some shred constants
+- use-crash-replayer
+  hooks for customer to easy integrate to crash replayer
 
 ## Tech stack
 - UMI4

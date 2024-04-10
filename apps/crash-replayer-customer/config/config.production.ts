@@ -4,7 +4,7 @@
  * @Description:
  */
 import { defineConfig } from '@umijs/max';
-import { SERVER_API_HOST } from 'use-crash-replayer';
+import { SERVER_API_HOST } from 'crash-replayer-constants';
 
 export default defineConfig({
   define: {
