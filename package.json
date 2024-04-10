@@ -8,7 +8,8 @@
     "customer-start-dev": "pnpm --filter crash-replayer-customer start-dev",
     "dashboard-start-dev": "pnpm --filter crash-replayer-dashboard start-dev",
     "server-start-dev": "pnpm --filter crash-replayer-server start:dev",
-    "start-dev": "npm-run-all --parallel customer-start-dev dashboard-start-dev server-start-dev"
+    "hook-start-dev": "pnpm --filter use-crash-replayer start",
+    "start-dev": "npm-run-all --parallel customer-start-dev dashboard-start-dev server-start-dev hook-start-dev"
   },
   "keywords": [],
   "author": "",

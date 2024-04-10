@@ -62,8 +62,6 @@ export const useCrashReplayer = (
         customerId: customerId,
         events: concatEventsString,
       });
-      console.log('🚀 ~ onError ~ body:', body);
-      console.log('🚀 ~ onError ~ url:', url);
       fetch(url, {
         method: 'POST',
         headers: {
