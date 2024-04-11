@@ -50,9 +50,7 @@ export const useCrashReplayer = (
       reporting = true;
       const preQueueIndex = (queueIndex + 1) % 2;
       const concatEvents = events[preQueueIndex].concat(events[queueIndex]);
-
       const concatEventsString = JSON.stringify(concatEvents);
-      console.log('🚀 ~ onError ~ concatEventsString:', concatEventsString);
       const body = JSON.stringify({
         error: errorEvent.message,
         source: errorEvent.filename,
@@ -81,7 +79,6 @@ export const useCrashReplayer = (
         .finally(() => {
           reporting = false;
         });
-      return true;
     };
 
     window.addEventListener('error', onError);
