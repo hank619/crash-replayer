@@ -3,7 +3,7 @@
  * @Date: 2024-04-10 16:30:06
  * @Description:
  */
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { pack, record } from 'rrweb';
 
 const sampling = {
@@ -27,6 +27,14 @@ export const useCrashReplayer = (
   browserId: string,
   customerId: string = ''
 ) => {
+  const browserIdRef = useRef<string>();
+  const customerIdRef = useRef<string>();
+
+  useEffect(() => {
+    browserIdRef.current = browserId;
+    customerIdRef.current = customerId;
+  }, [browserId, customerId]);
+
   useEffect(() => {
     const stopFn = record({
       emit(event, isCheckout) {
@@ -56,8 +64,8 @@ export const useCrashReplayer = (
         source: errorEvent.filename,
         lineno: errorEvent.lineno,
         colno: errorEvent.colno,
-        browserId: browserId,
-        customerId: customerId,
+        browserId: browserIdRef.current,
+        customerId: customerIdRef.current,
         events: concatEventsString,
       });
       fetch(url, {
