@@ -1,5 +1,5 @@
 {
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -27,6 +27,7 @@
       "pre-commit": "tsdx lint"
     }
   },
+  "repository": "https://github.com/hank619/crash-replayer/tree/main/packages/use-crash-replayer",
   "prettier": {
     "printWidth": 80,
     "semi": true,
